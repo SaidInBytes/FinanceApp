@@ -9,8 +9,8 @@ interface StockDetailProps {
 }
 
 const StockDetail: React.FC<StockDetailProps> = ({ stock }) => {
-  if (!stock) return <div>Välj en aktie för att se detaljer.</div>;
-    const changeColor = stock.change > 0 ? 'text-green-500' : stock.change < 0 ? 'text-red-500' : 'text-gray-400';
+  if (!stock) return <div className="text-gray-400 text-center">Select a stock to view details.</div>;
+  const changeColor = stock.change && stock.change > 0 ? 'text-green-500' : stock.change && stock.change < 0 ? 'text-red-500' : 'text-gray-400';
     return (
       <div className="bg-[#181C25] rounded-xl shadow-lg p-6 border border-[#2C3140] max-w-md mx-auto text-white">
         <div className="flex items-center justify-between mb-4">
@@ -23,15 +23,15 @@ const StockDetail: React.FC<StockDetailProps> = ({ stock }) => {
         <div className="grid grid-cols-2 gap-4 mb-4">
           <div>
             <span className="text-xs text-gray-400">Price</span>
-            <div className="text-xl font-semibold">${stock.price.toFixed(2)}</div>
+            <div className="text-xl font-semibold">{typeof stock.price === 'number' ? `$${stock.price.toFixed(2)}` : '-'}</div>
           </div>
           <div>
             <span className="text-xs text-gray-400">Change</span>
-            <div className={`text-xl font-semibold ${changeColor}`}>{stock.change}%</div>
+            <div className={`text-xl font-semibold ${changeColor}`}>{typeof stock.change === 'number' ? `${stock.change}%` : '-'}</div>
           </div>
           <div>
             <span className="text-xs text-gray-400">Volume</span>
-            <div className="text-lg">{stock.volume.toLocaleString()}</div>
+            <div className="text-lg">{typeof stock.volume === 'number' ? stock.volume.toLocaleString() : '-'}</div>
           </div>
           <div>
             <span className="text-xs text-gray-400">Market Cap</span>
@@ -39,7 +39,7 @@ const StockDetail: React.FC<StockDetailProps> = ({ stock }) => {
           </div>
         </div>
         <div className="mt-4">
-          {/* Här kan du lägga till en graf med t.ex. recharts eller chart.js */}
+          {/* You can add a chart here using e.g. recharts or chart.js */}
           <div className="bg-[#23283A] rounded-lg h-24 flex items-center justify-center text-gray-500">
             <span>Chart Placeholder</span>
           </div>

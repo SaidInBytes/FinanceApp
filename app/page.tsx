@@ -4,12 +4,13 @@ import React, { useEffect, useState } from "react";
 import StockList, { Stock } from "./components/StockList";
 import StockDetail from "./components/StockDetail";
 import StockSearch from "./components/StockSearch";
-import { fetchStocks, fetchStock } from "./api/zoya";
+import { fetchStocks, fetchStock } from "./api/stocks";
 
 export default function Page() {
 	const [stocks, setStocks] = useState<Stock[]>([]);
 	const [selectedStock, setSelectedStock] = useState<Stock | null>(null);
 	const [loading, setLoading] = useState(false);
+	const [searchError, setSearchError] = useState<string | null>(null);
 
 	useEffect(() => {
 		setLoading(true);
@@ -21,25 +22,45 @@ export default function Page() {
 
 	const handleSelect = async (symbol: string) => {
 		setLoading(true);
+		setSearchError(null);
 		const stock = await fetchStock(symbol);
-		setSelectedStock(stock);
+		if (stock) {
+			setSelectedStock(stock);
+		} else {
+			setSelectedStock(null);
+			setSearchError("No stock found for that symbol.");
+		}
 		setLoading(false);
 	};
 
 	const handleSearch = async (symbol: string) => {
 		setLoading(true);
+		setSearchError(null);
 		const stock = await fetchStock(symbol);
-		setSelectedStock(stock);
+		if (stock) {
+			setSelectedStock(stock);
+		} else {
+			setSelectedStock(null);
+			setSearchError("No stock found for that symbol.");
+		}
 		setLoading(false);
 	};
 
-	 return (
+		return (
 			<main className="max-w-2xl mx-auto p-6 bg-gradient-to-br from-[#181C25] via-[#23283A] to-[#141721] rounded-2xl shadow-2xl mt-10 animate-fade-in">
-				<h1 className="text-3xl font-extrabold text-blue-400 mb-6 tracking-tight text-center drop-shadow">Aktier <span className="text-white">- Shariah Compliance</span></h1>
+				<h1 className="text-3xl font-extrabold text-blue-400 mb-6 tracking-tight text-center drop-shadow">Stocks</h1>
 				<div className="mb-6">
 					<StockSearch onSearch={handleSearch} />
 				</div>
-				{loading && <div className="flex justify-center items-center mb-4"><span className="loader mr-2"></span><span className="text-gray-300">Laddar...</span></div>}
+				{loading && (
+					<div className="flex justify-center items-center mb-4">
+						<span className="loader mr-2"></span>
+						<span className="text-gray-300">Loading...</span>
+					</div>
+				)}
+				{searchError && (
+					<div className="text-center text-red-400 mb-4">{searchError}</div>
+				)}
 				<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 					<div>
 						<StockList stocks={stocks} onSelect={handleSelect} />
@@ -49,7 +70,8 @@ export default function Page() {
 					</div>
 				</div>
 				<footer className="mt-10 text-center text-xs text-gray-400">
-					<a href="https://zoya.finance/api" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition">Data provided by Zoya</a>
+					<p>Data is fetched from Alpha Vantage via their API. This is not an official app from Alpha Vantage.</p>
+					<p>Built with Next.js and Tailwind CSS.</p>
 				</footer>
 				<style jsx>{`
 					.loader {

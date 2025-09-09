@@ -1,16 +1,12 @@
 import React from 'react';
 
 const Header: React.FC = () => (
-  <header className="bg-[#181C25] border-b border-[#2C3140] py-4 px-6 flex items-center justify-between text-white shadow">
-    <div className="flex items-center gap-2">
-      <img src="/globe.svg" alt="Logo" className="w-8 h-8" />
-      <span className="text-xl font-bold tracking-tight">FinansApp</span>
+  <header className="bg-gradient-to-r from-[#181C25] via-[#23283A] to-[#141721] border-b border-[#2C3140] py-4 px-6 flex flex-col md:flex-row items-center justify-between text-white shadow-lg">
+    <div className="flex flex-col items-center w-full gap-2">
+      <img src="/globe.svg" alt="Logo" className="w-8 h-8 drop-shadow mx-auto" />
+      <span className="text-2xl font-extrabold tracking-tight text-blue-400 text-center">FinanceApp</span>
     </div>
-    <nav className="space-x-6">
-      <a href="/" className="hover:text-blue-400 transition">Hem</a>
-      <a href="#stocks" className="hover:text-blue-400 transition">Aktier</a>
-      <a href="#about" className="hover:text-blue-400 transition">Om</a>
-    </nav>
+  
   </header>
 );
 
