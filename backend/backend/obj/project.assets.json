@@ -80,11 +80,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\osman\\Desktop\\my-app\\backend\\backend\\backend.csproj",
+      "projectUniqueName": "C:\\Users\\osman\\Desktop\\my-app-1\\backend\\backend\\backend.csproj",
       "projectName": "backend",
-      "projectPath": "C:\\Users\\osman\\Desktop\\my-app\\backend\\backend\\backend.csproj",
+      "projectPath": "C:\\Users\\osman\\Desktop\\my-app-1\\backend\\backend\\backend.csproj",
       "packagesPath": "C:\\Users\\osman\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\osman\\Desktop\\my-app\\backend\\backend\\obj\\",
+      "outputPath": "C:\\Users\\osman\\Desktop\\my-app-1\\backend\\backend\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\osman\\AppData\\Roaming\\NuGet\\NuGet.Config"
