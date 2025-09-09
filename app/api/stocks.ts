@@ -10,7 +10,7 @@ export async function fetchStocks() {
 }
 
 export async function fetchStock(symbol: string) {
-  const apiKey = "5PEP4R3EHRJ8HHDO";
+  const apiKey = process.env.API_KEY || "";
   const url = `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${symbol}&interval=5min&apikey=${apiKey}`;
   const res = await fetch(url);
   const data = await res.json();
