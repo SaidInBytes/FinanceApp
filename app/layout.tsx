@@ -24,10 +24,26 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#141721] min-h-screen flex flex-col`}>
+        <div className="flex flex-col min-h-screen">
+          <header>
+            {/* Header-komponent */}
+            <div className="sticky top-0 z-50">
+              {/* @ts-ignore */}
+              {require('./components/Header').default()}
+            </div>
+          </header>
+          <main className="flex-1 container mx-auto px-4">
+            {children}
+          </main>
+          <footer>
+            {/* Footer-komponent */}
+            <div>
+              {/* @ts-ignore */}
+              {require('./components/Footer').default()}
+            </div>
+          </footer>
+        </div>
       </body>
     </html>
   );
