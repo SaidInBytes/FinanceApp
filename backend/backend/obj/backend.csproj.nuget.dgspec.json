@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\osman\\Desktop\\FinanceApp-1\\backend\\backend\\backend.csproj": {}
+    "/Users/amanblack/FinanceApp/backend/backend/backend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\osman\\Desktop\\FinanceApp-1\\backend\\backend\\backend.csproj": {
+    "/Users/amanblack/FinanceApp/backend/backend/backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\osman\\Desktop\\FinanceApp-1\\backend\\backend\\backend.csproj",
+        "projectUniqueName": "/Users/amanblack/FinanceApp/backend/backend/backend.csproj",
         "projectName": "backend",
-        "projectPath": "C:\\Users\\osman\\Desktop\\FinanceApp-1\\backend\\backend\\backend.csproj",
-        "packagesPath": "C:\\Users\\osman\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\osman\\Desktop\\FinanceApp-1\\backend\\backend\\obj\\",
+        "projectPath": "/Users/amanblack/FinanceApp/backend/backend/backend.csproj",
+        "packagesPath": "/Users/amanblack/.nuget/packages/",
+        "outputPath": "/Users/amanblack/FinanceApp/backend/backend/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\osman\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/Users/amanblack/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -68,7 +68,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.304/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
