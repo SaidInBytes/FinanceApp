@@ -1,4 +1,6 @@
 import Image from "next/image";
+import React, { useEffect, useState } from "react";
+import { GraphQLClient } from "graphql-request";
 
 export default function Home() {
   return (
@@ -99,5 +101,31 @@ export default function Home() {
         </a>
       </footer>
     </div>
+  );
+  const [data, setData] = useState(null);
+  useEffect(() => {
+    const client = new GraphQLClient("https://sandbox-api.zoya.finance/graphql", {
+      headers: {
+        "x-api-key": "sandbox-28183fb6-64eb-4812-9562-e09bce245062",
+      },
+    });
+    const query = `
+      query {
+        me {
+          id
+          email
+        }
+      }
+    `;
+    client.request(query)
+      .then((result) => setData(result))
+      .catch((err) => setData({ error: err.message }));
+  }, []);
+
+  return (
+    <main>
+      <h1>Välkommen till Next.js!</h1>
+      <pre>{JSON.stringify(data, null, 2)}</pre>
+    </main>
   );
 }
