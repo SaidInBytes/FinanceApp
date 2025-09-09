@@ -10,3 +10,7 @@ npm-debug.log
 yarn-error.log
 .DS_Store
 Thumbs.db
+
+# Ignorera backend-konfigurationsfiler med API-nycklar
+backend/backend/appsettings.json
+backend/backend/appsettings.Development.json
